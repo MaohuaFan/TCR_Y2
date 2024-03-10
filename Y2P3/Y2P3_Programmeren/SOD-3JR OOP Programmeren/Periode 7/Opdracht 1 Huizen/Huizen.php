@@ -1,28 +1,51 @@
 <?php
 
-class Task {
-    public $description;
-    public $completed = false;
+    class House {
 
-    public function __construct($description)
-    {
-        $this->description = $description;
+        // Attributes
+        protected int $floor;
+        protected int $rooms;
+        protected float $width;
+        protected float $height;
+        protected float $depth;
+
+        // Constructor
+        public function __construct($floor, $rooms, $width, $height, $depth)
+        {
+            $this->floor = $floor;
+            $this->rooms = $rooms;
+            $this->width = $width;
+            $this->height = $height;
+            $this->depth = $depth;
+        }
+
+        public function __construct($volume)
+        {            
+            $this->volume = ;
+        }
     }
-    public function complete()
-    {
-        $this->completed = true;
+
+    // Methods
+    public function setVolume($volume) {
+        protected int $volume = $width * $height * $depth;
+        $this->volume = $volume;
     }
-}
 
-$task = new Task('Learn OOP', 'The teacher bla bla bla...');
-$task2 = new Task('Pick up groceries');
+    public function getHouse() {
 
-$task->complete();
-#$task2->complete();
+    }
 
-var_dump($task->description);
-var_dump($task2->description);
-var_dump($task->completed);
-var_dump($task2->completed);
+    public function getPrice() {
+
+    }
+
+    $House1 = new House('2','4','2');
+    
+    $john->age = 30;
+    #$john->age = 15;
+
+    var_dump($john);
+
+
 
 ?>
