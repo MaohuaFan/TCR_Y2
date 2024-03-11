@@ -1,0 +1,15 @@
+{
+    "name": "gebruiker/tcr_y2",
+    "autoload": {
+        "psr-4": {
+            "Gebruiker\\TcrY2\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MaohuaFan",
+            "email": "9019910@student.zadkine.nl"
+        }
+    ],
+    "require": {}
+}
