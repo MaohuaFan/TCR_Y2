@@ -2,7 +2,7 @@
     "name": "gebruiker/tcr_y2",
     "autoload": {
         "psr-4": {
-            "Gebruiker\\TcrY2\\": "src/"
+            "Opdracht_6_Login\\": "src/"
         }
     },
     "authors": [
