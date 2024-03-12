@@ -2,7 +2,9 @@
     // Functie: classdefinitie User 
     // Auteur: Wigmans
 
-    class User{
+    namespace Opdracht_6_Login\classes;
+
+    class User extends Database{ // WIP Need Database first
 
         // Eigenschappen 
         public $username;

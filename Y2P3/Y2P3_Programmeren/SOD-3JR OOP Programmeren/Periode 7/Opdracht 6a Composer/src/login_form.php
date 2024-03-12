@@ -1,9 +1,11 @@
 <?php
-	
+    require "../vender/autoloader.php";
+	use Opdracht_6_Login\classes\User;
+
 	// Is de login button aangeklikt?
 	if(isset($_POST['login-btn']) ){
 
-		require_once('classes/user.php');
+		//require_once('classes/user.php');
 		$user = new User();
 
 		$user->username = $_POST['username'];

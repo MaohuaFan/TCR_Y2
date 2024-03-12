@@ -18,7 +18,10 @@
 	<br />
 	<?php
 
-    require_once 'classes/user.php';
+	require "../vender/autoloader.php";
+	use Opdracht_6_Login\classes\User;
+	//require_once 'classes/user.php';
+	//use LoginOpdracht\classes\Database;
 
     $user = new User();
 
