@@ -24,16 +24,16 @@ class House {
     public function getTotalVolume(){
         $totalVolume = 0;
         foreach ($this->rooms as $room) {
-            $totalVolume += $room->getVolume();
-            echo $totalVolume;
-            echo"<br><br>";
+            $totalVolume += round($room->getVolume());
+            #echo $totalVolume;
+            #echo"<br><br>";
         }
         return $totalVolume;
     }
 
     // Placeholder method for calculating house price
-    public function getPrice(){
-        return 0.0; // Placeholder value, you need to implement actual logic
+    public function getPrice($totalVolume){
+        return $totalVolume*2980;
     }
 }
 

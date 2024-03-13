@@ -32,10 +32,10 @@ foreach ($rooms as $index => $room) {
 
 // Get total volume of the house
 $totalVolume = $house->getTotalVolume();
-echo "Volume Totaal: " . $totalVolume . "m3<br>";
+echo "<br>Volume Totaal: " . $totalVolume . "m3<br>";
 
 // Get price of the house
-$price = $house->getPrice();
-echo "prijs van het huis: " . $price . "Euro<br>";
+$price = $house->getPrice($totalVolume);
+echo "prijs van het huis: " . $price . " Euro<br>";
 
 ?>
