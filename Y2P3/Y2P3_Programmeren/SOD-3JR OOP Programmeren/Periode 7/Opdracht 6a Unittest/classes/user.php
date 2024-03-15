@@ -4,7 +4,7 @@
 
     namespace Opdracht_6_Login\classes;
 
-    class User extends Database{ // WIP Need Database first
+    class User extends Database1{ // WIP Need Database first
 
         // Eigenschappen 
         public $username;
