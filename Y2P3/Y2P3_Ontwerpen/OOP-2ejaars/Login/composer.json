@@ -1,0 +1,17 @@
+{
+    "name": "gebruiker/login",
+    "require": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gebruiker\\Login\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MaohuaFan",
+            "email": "9019910@student.zadkine.nl"
+        }
+    ]
+}
