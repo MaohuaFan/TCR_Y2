@@ -100,15 +100,12 @@ public function testRegisterUser(){
     // Create a new User instance
     $user = new User();
 
-    // Set username and password for registration
     $user->username = "test_user";
     $user->SetPassword("test_password");
 
-    // Attempt to register user
     $errors = $user->RegisterUser();
 
-    // Ensure that no errors occurred during registration
-    $this->assertEmpty($errors, "Registration should not produce errors.");
+    $this->assertEmpty($errors, "Registration mag geen fouten opleveren.");
 }
 
 
@@ -125,7 +122,7 @@ public function testLoginUser(){
     $user->SetPassword("incorrect_password");
 
     // Ensure that login fails with incorrect credentials
-    $this->assertFalse($user->LoginUser(), "Login should fail with incorrect credentials");
+    $this->assertFalse($user->LoginUser(), "Incorrect username or password");
 }
 
 
