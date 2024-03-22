@@ -20,6 +20,7 @@
 
 		// Validatie gegevens
 		// Hoe???
+		$errors = $user->ValidateUser();
 
 		if(count($errors) == 0){
 			// Register user

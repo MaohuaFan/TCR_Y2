@@ -55,22 +55,26 @@
             return $errors;
         }
 
-        function ValidateUser(){
-            $errors=[];
-
+        public function ValidateUser(){
+            $errors = [];
+            
             if (empty($this->username)){
                 array_push($errors, "Invalid username");
-            } else if (empty($this->password)){
+            }
+            
+            if (empty($this->password)){
                 array_push($errors, "Invalid password");
             }
+            
             // Test username > 3 tekens en < 50 tekens
             if (strlen($this->username) < 3 || strlen($this->username) > 50) {
-                array_push($errors, "Username must be between 3 and 50 characters.");
+                array_push($errors, 'Username moet > 3 en < 50 tekens zijn.');
             }
-
-            
+        
             return $errors;
         }
+        
+        
 
         public function LoginUser(){
             // Connect database
@@ -142,12 +146,12 @@
         public function Logout(){
             session_start();
             // remove all session variables
-           session_unset();
-
+            session_unset();
+        
             // destroy the session
             session_destroy();
             
-            header('location: index.php');
+            #header('location: index.php');
         }
     }
 ?>

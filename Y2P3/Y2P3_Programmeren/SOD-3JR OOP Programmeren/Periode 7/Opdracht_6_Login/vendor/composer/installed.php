@@ -3,7 +3,7 @@
         'name' => 'gebruiker/opdracht_6_login',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f4643554a68797bf8d89a76f85845732b754c4f6',
+        'reference' => 'f7ad1abd8b7e7263b2adc23618aed8c60ec17011',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'gebruiker/opdracht_6_login' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f4643554a68797bf8d89a76f85845732b754c4f6',
+            'reference' => 'f7ad1abd8b7e7263b2adc23618aed8c60ec17011',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
