@@ -28,9 +28,15 @@
             $status = false;
             $errors=[];
             if($this->username != "" || $this->password != ""){ 
+                // Validate that both username and password are provided
+            /*if(empty($this->username) || empty($this->password)) {
+                array_push($errors, "Username and password are required.");
+                return $errors;
+            }*/
 
                 // Check if the username already exists in the database
-                if ($this->username != "") { // Check if the username is provided
+                //if ($this->username != "") { // Check if the username is provided
+                if(empty($this->username) && empty($this->password)) {
                     $sql = "SELECT * FROM `user` WHERE `username` = :username";
                     $params = [':username' => $this->username];
                     $existingUser = $this->GetData($sql, $params);
@@ -38,18 +44,15 @@
                     if ($existingUser) {
                         array_push($errors, "Username bestaat al.");
                     } else {
-                        // Manier 1
-                        // Username opslaan in tabel login
+                        // Attempt to insert the user into the database
                         $sql = "INSERT INTO `user` (`username`, `password`, `role`) VALUES (:username, :password, '')";
                         $params = [
                             ':username' => $this->username,
                             ':password' => $this->password  
                         ];
                         $this->GetData($sql, $params);
-                        
                         $status = true;
                     }
-                            
                 }
             }
             return $errors;
@@ -106,6 +109,8 @@
                 return false;
             }
         }
+
+        
         
         // Check if the user is already logged in
         public function IsLoggedin() {
@@ -154,4 +159,5 @@
             #header('location: index.php');
         }
     }
+
 ?>

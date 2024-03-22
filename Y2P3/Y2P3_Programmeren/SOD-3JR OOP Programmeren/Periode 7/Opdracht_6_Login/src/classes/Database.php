@@ -30,8 +30,8 @@
                 echo "Connection failed: " . $e->getMessage();
             }
         }
-
-        // Function to get data from a table
+ 
+        // Function to get data from sql quary
         public function GetData($sql, $params = array()){
             $result = [];
 

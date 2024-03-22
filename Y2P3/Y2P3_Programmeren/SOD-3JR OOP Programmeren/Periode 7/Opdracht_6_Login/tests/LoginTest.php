@@ -56,8 +56,6 @@ class LoginTest extends TestCase
         $errors = $this->user->ValidateUser();
         $this->assertContains('Username moet > 3 en < 50 tekens zijn.', $errors);
 
-
-
         // Debugging statement to inspect the errors array
         // var_dump($errors);
     
@@ -73,10 +71,6 @@ class LoginTest extends TestCase
         */
     }
     
-    
-    
-
-
 
     /**
      * @covers User::IsLoggedin
@@ -97,6 +91,43 @@ class LoginTest extends TestCase
         $isDeleted = (session_status() == PHP_SESSION_NONE || empty(session_status()));
         $this->assertTrue($isDeleted);
     }
+
+
+/**
+ * @covers User::RegisterUser
+ */
+public function testRegisterUser(){
+    // Create a new User instance
+    $user = new User();
+
+    // Set username and password for registration
+    $user->username = "test_user";
+    $user->SetPassword("test_password");
+
+    // Attempt to register user
+    $errors = $user->RegisterUser();
+
+    // Ensure that no errors occurred during registration
+    $this->assertEmpty($errors, "Registration should not produce errors.");
 }
 
+
+
+/**
+ * @covers User::LoginUser
+ */
+public function testLoginUser(){
+    // Create a new User instance
+    $user = new User();
+
+    // Set incorrect username and password
+    $user->username = "incorrect_user";
+    $user->SetPassword("incorrect_password");
+
+    // Ensure that login fails with incorrect credentials
+    $this->assertFalse($user->LoginUser(), "Login should fail with incorrect credentials");
+}
+
+
+}
 ?>
