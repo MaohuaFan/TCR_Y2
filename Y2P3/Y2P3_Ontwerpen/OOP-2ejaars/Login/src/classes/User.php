@@ -2,7 +2,7 @@
     // Functie: classdefinitie User 
     // Auteur: Wigmans
 
-    class User{
+    class User extends Database{
 
         // Eigenschappen 
         public $username;
@@ -53,29 +53,55 @@
             }
 
             // Test username > 3 tekens en < 50 tekens
-            
+            function setUsername($username) // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            { // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                if ($username < 3 || $username > 50) // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                { // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    throw new Exception("Invalid Username"); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                } // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                $this->username = $username; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            } // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
             return $errors;
         }
 
         public function LoginUser(){
 
             // Connect database
+            $conn = Database(); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            #var_dump($conn);
+            
+            $type = "username"; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            $table = "user"; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-            // Zoek user in de table user
-           echo "Username:" . $this->username;
+
+            $query = $conn->prepare("SELECT $type FROM $table WHERE "); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            $query->execute(); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            $result = $query->fetchAll(PDO::FETCH_ASSOC); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            return $result; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            
+
+            echo "Username:" . $this->username;
 
 
             // Indien gevonden dan sessie vullen
-
-
-            return true;
+            if(isset($result)){ // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                session_start(); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                $_SESSION("username") = $this->username; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                return true; 
+            } // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
 
         // Check if the user is already logged in
         public function IsLoggedin() {
             // Check if user session has been set
-            
-            return false;
+            session_start(); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if(isset($_SESSION("username"))){ // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                return true; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            } else{ // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                return false;
+            } // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
 
         public function GetUser($username){
@@ -92,10 +118,11 @@
         public function Logout(){
             session_start();
             // remove all session variables
-           
+            session_unset(); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
             // destroy the session
-            
+            sessions_destroy(); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
             header('location: index.php');
         }
 
