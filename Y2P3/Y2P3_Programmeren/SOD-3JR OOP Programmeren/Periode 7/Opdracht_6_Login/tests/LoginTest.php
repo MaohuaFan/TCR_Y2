@@ -93,39 +93,37 @@ class LoginTest extends TestCase
     }
 
 
-/**
- * @covers User::RegisterUser
- */
-public function testRegisterUser(){
-    // Create a new User instance
-    $user = new User();
+    /**
+     * @covers User::RegisterUser
+     */
+    public function testRegisterUser(){
+        // Create a new User instance
+        $user = new User();
 
-    $user->username = "test_user";
-    $user->SetPassword("test_password");
+        $user->username = "test_user";
+        $user->SetPassword("test_password");
 
-    $errors = $user->RegisterUser();
+        $errors = $user->RegisterUser();
 
-    $this->assertEmpty($errors, "Registration mag geen fouten opleveren.");
-}
-
-
-
-/**
- * @covers User::LoginUser
- */
-public function testLoginUser(){
-    // Create a new User instance
-    $user = new User();
-
-    // Set incorrect username and password
-    $user->username = "incorrect_user";
-    $user->SetPassword("incorrect_password");
-
-    // Ensure that login fails with incorrect credentials
-    $this->assertFalse($user->LoginUser(), "Incorrect username or password");
-}
+        $this->assertEmpty($errors, "Registration mag geen fouten opleveren.");
+    }
 
 
+
+    /**
+     * @covers User::LoginUser
+     */
+    public function testLoginUser(){
+        // Create a new User instance
+        $user = new User();
+
+        // Set incorrect username and password
+        $user->username = "incorrect_user";
+        $user->SetPassword("incorrect_password");
+
+        // Ensure that login fails with incorrect credentials
+        $this->assertFalse($user->LoginUser(), "Incorrect username or password");
+    }
 
 }
 ?>

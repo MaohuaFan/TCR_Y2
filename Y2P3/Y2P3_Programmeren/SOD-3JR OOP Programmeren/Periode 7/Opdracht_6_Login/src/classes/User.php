@@ -144,9 +144,6 @@
             }
         }
         
-        
-        
-        
 
         public function Logout(){
             session_start();
