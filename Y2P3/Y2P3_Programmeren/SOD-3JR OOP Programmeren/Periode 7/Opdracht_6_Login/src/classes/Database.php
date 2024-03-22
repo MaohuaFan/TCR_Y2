@@ -55,6 +55,67 @@
 
 
 
+
+    // Debug and Placeholder List
     // $db = new Database();
     // var_dump($db);
+
+
+
+
+
+    
+    /**
+ * @covers User::ShowUser
+ */
+/*public function testShowUser(){
+    // Create a User object with test data
+    $user = new User("john_doe", "password123", "john@example.com");
+
+    // Start output buffering to capture echoed output
+    ob_start();
+    
+    // Call the ShowUser method
+    $user->ShowUser();
+    
+    // Get the contents of the output buffer
+    $output = ob_get_clean();
+
+    // Add your assertions to test the output
+    $expectedOutput = "<br>Username: john_doe<br><br>Password: password123<br><br>Email: john@example.com<br>";
+    $this->expectOutputString($expectedOutput);
+    $this->assertEquals($expectedOutput, $output);
+}*/
+
+/**
+ * @covers User::GetUser
+ */
+/*public function testGetUser(){
+    // Mocking the GetData method
+    $mockedUserData = [
+        ['username' => 'testuser', 'password' => 'testpassword', 'email' => 'test@example.com']
+    ];
+    $mockedGetDataReturnValue = $mockedUserData;
+
+    $mockedUser = $this->getMockBuilder(User::class)
+                       ->setMethods(['GetData'])
+                       ->getMock();
+
+    $mockedUser->expects($this->once())
+               ->method('GetData')
+               ->willReturn($mockedGetDataReturnValue);
+
+    // Call the GetUser method
+    $result = $mockedUser->GetUser('testuser');
+
+    // Assertions
+    $this->assertTrue($result); // Check if the user is found
+    $this->assertEquals('testuser', $mockedUser->username); // Check if username property is set
+    $this->assertEquals('testpassword', $mockedUser->password); // Check if password property is set
+    $this->assertEquals('test@example.com', $mockedUser->email); // Check if email property is set
+    $this->assertEquals('testuser', $_SESSION['username']); // Check if session variable is set correctly
+    $this->assertEquals('test@example.com', $_SESSION['email']); // Check if session variable is set correctly
+}*/
+
+
 ?>
