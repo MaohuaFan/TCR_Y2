@@ -146,7 +146,10 @@
         
 
         public function Logout(){
-            session_start();
+            // Check if a session is already active
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
             // remove all session variables
             session_unset();
         

@@ -86,7 +86,10 @@ class LoginTest extends TestCase
      */
     public function testLogout()
     {
-        session_start();
+        // Check if a session is already active
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+            }
         $this->user->Logout();
         $isDeleted = (session_status() == PHP_SESSION_NONE || empty(session_status()));
         $this->assertTrue($isDeleted);
