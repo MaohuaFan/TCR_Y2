@@ -1,7 +1,7 @@
 <?php
 namespace Opdracht3;
 
-class Circle extends Figure
+class Square extends Figure
 {
     // Attributes
     protected int $length;
@@ -15,7 +15,7 @@ class Circle extends Figure
     // Methods
     public function draw()
     {
-        return "A " . $this->color . " circle with a radius of " . $this->length;
+        return "Square wordt getekend en heeft een diameter van ". $this->length .", en krijgt de kleur " . $this->color;
     }
 }
 ?>

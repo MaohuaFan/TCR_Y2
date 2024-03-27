@@ -15,7 +15,7 @@ class Circle extends Figure
     // Methods
     public function draw()
     {
-        return "A " . $this->color . " circle with a radius of " . $this->length;
+        return "Cricle wordt getekend en heeft een diameter van ". $this->length .", en krijgt de kleur " . $this->color;
     }
 }
 ?>

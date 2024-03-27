@@ -8,6 +8,7 @@ class Figure
 
     // Constructor
     public function __construct($color) {
+        echo'New Figure wordt aangemaakt en krijgt een kleur';
         $this->color = $color;
     }
 
@@ -18,7 +19,7 @@ class Figure
 
     public function draw()
     {
-        return "A " . $this->color . " figure";
+        return "A Figure wordt getekend en krijgt de kleur " . $this->color;
     }
 }
 ?>
